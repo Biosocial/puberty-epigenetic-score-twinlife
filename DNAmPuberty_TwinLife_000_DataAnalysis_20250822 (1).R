@@ -40,7 +40,7 @@ library(dplyr)
 
 #### Read in the data ####
 
-DataTL <- read_dta("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/TwinLife_MPIB_transfer_puberty_V2.0.0_06112024.dta")
+DataTL <- read_dta("------/TwinLife_MPIB_transfer_puberty_V2.0.0_06112024.dta")
 colnames(DataTL)
 
 #rename fid_v2 and pid_v2 to fid and pid 
@@ -521,7 +521,7 @@ print(cormatrix, short=FALSE)
 lowertable <- lowerCor(girls.corr, use = "pairwise.complete.obs")
 print(lowertable)
 #safe as apa.cor table from apaTables
-#tablecor <- apa.cor.table(girls.corr, "/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/Correlations_girls")  
+#tablecor <- apa.cor.table(girls.corr, "------/Correlations_girls")  
 
 
 
@@ -709,8 +709,8 @@ plot <- ggplot(data = girls_df_all, aes(x = dnampubertalageAccel_res_cellZ_wid5,
   ylim(8, 15.5)
 
 
-ggsave("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/plot_TwinLife.png", plot = plot, width = 9, height = 7)
-ggsave("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/plot_TwinLife.pdf", plot = plot, width = 9, height = 7)
+ggsave("------/plot_TwinLife.png", plot = plot, width = 9, height = 7)
+ggsave("------/plot_TwinLife.pdf", plot = plot, width = 9, height = 7)
 
 #### Puberty predicted by MPS puberty and other clocks ####
 
@@ -1458,14 +1458,14 @@ describe(subset(boys_df_wid5_noNA, cgr == 2)$DunedinPaceAccel_res_cellZ_wid5) #D
 
 ##### Safe all datasets #####
 
-write.csv(df2, "/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/fulldata.csv", row.names = FALSE)
-write.csv(girls_df_all, "/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/girls_pubertyclocks.csv", row.names = FALSE)
-write.csv(boys_df_all, "/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/boys_pubertyclocks.csv", row.names = FALSE)
-write.csv(boys_df_wid5_noNA, "/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/boys_epiclocks.csv", row.names = FALSE)
+write.csv(df2, "------/fulldata.csv", row.names = FALSE)
+write.csv(girls_df_all, "------/girls_pubertyclocks.csv", row.names = FALSE)
+write.csv(boys_df_all, "------/boys_pubertyclocks.csv", row.names = FALSE)
+write.csv(boys_df_wid5_noNA, "------/boys_epiclocks.csv", row.names = FALSE)
 
-girls_df_all <- read.csv("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/girls_pubertyclocks.csv", header = TRUE)
-boys_df_all <- read.csv("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/boys_pubertyclocks.csv", header = TRUE)
-boys_df_wid5_noNA <- read.csv("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/boys_epiclocks.csv", header = TRUE)
+girls_df_all <- read.csv("------/girls_pubertyclocks.csv", header = TRUE)
+boys_df_all <- read.csv("------/boys_pubertyclocks.csv", header = TRUE)
+boys_df_wid5_noNA <- read.csv("------/boys_epiclocks.csv", header = TRUE)
   
 colnames(girls_df_all)  
 
@@ -1821,7 +1821,7 @@ ggplot(combined_data, aes(x = Estimate, y = Clock_Position, color = Cohort)) +
 print(combined_data %>% select(Clock, Clock_Position, Estimate, CI_lower, CI_upper))
 
 #### Running multiple-regression models ####
-girls_df_all <- read.csv("/Users/willems/Desktop/Projects/Puberty Sister Paper/Analysis October/girls_pubertyclocks.csv", header = TRUE)
+girls_df_all <- read.csv("------/girls_pubertyclocks.csv", header = TRUE)
 
 
 #be sure only using 1st timepoint, that MPS are adjusted for IC and Epi, and standardized 
